@@ -1,0 +1,175 @@
+:root {
+    --alabaster: #FAFAFA;
+    --frangipani: #FFDCB5;
+    --lemon-chiffon: #F9EEAB;
+    --white: #FFF;
+}
+  
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: sans-serif;
+    background-color: var(--alabaster);
+    
+}
+
+
+
+/********** Ball bouncing animation  ****/
+.ball-bouncing {
+    height: 23rem;
+    width: 23rem;
+    border-radius: 0.25rem;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+    margin: 30px auto;
+    background-color: var(--lemon-chiffon);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+  
+.ball-bouncing::before {
+      content: '';
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      height: 0.15rem;
+      width: 2rem;
+
+      position: absolute;
+      bottom: 2rem;
+      animation: shadowBouncing 1.2s ease-in infinite;
+}
+  
+.ball-bouncing .ball {
+    background-color: var(--white);
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    bottom: 2.1rem;
+
+    animation: ballBouncing 1.2s ease-in infinite;
+    transform-origin: bottom;
+}
+  
+@keyframes ballBouncing {
+    0%,
+    100% {
+      transform: scale(1.5, 0.5);
+    }
+    20% {
+      transform: scaleY(1.2);
+    }
+    40%,
+    80% {
+      transform: translateY(-14rem);
+    }
+    70% {
+      transform: translateY(-15rem);
+    }
+    90% {
+      transform: translateY(0);
+    }
+}
+  
+@keyframes shadowBouncing {
+    0%,
+    100% {
+      transform: scale(2, 0.8);
+    }
+    20% {
+      transform: scale(1.2, 0.8);
+    }
+    40%,
+    80% {
+      transform: scale(0.5, 0.2);
+    }
+    70% {
+      transform: scale(0.5, 0.15);
+    }
+    90% {
+      transform: scale(1.5, 0.6);
+    }
+}
+/* End ball bouncing */
+  
+  
+
+
+
+/****** Ball movement - third animation *********/
+
+.ball-movement {
+    height: 23rem;
+    width: 23rem;
+    border-radius: 0.25rem;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+    margin: 30px auto;
+    background-color: var(--frangipani);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+}  
+.ball-movement::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+    height: 0.15rem;
+
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+}
+  
+.ball-movement .ball {
+    background-color: var(--white);
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+
+    position: absolute;
+    bottom: 2.1rem;
+    transform: translate(14rem, -15rem) scale(1.2, 0.5);
+    transform-origin: bottom;
+    animation: ballMovement 1.6s cubic-bezier(0, 0.98, 1, 0.99) infinite;
+}
+  
+@keyframes ballMovement {
+    0% {
+      transform: translate(14rem, -15rem);
+    }
+    15% {
+      transform: translate(7rem, 0rem) scale(1.2, 0.5);
+    }
+    30% {
+      transform: translate(2rem, -10rem) scale(1, 1);
+    }
+    45% {
+      transform: translate(-2rem, 0rem) scale(1.2, 0.8);
+    }
+    60% {
+      transform: translate(-5rem, -5.5rem) scale(1, 1);
+    }
+    75% {
+      transform: translate(-8rem, 0rem) scale(1.1, 0.9);
+    }
+    100% {
+      transform: translate(-14rem, -3rem) scale(1, 1);
+    }
+}
+/* End ball movement */
+  
+  
+
